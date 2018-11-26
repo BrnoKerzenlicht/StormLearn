@@ -59,7 +59,7 @@ public class TestSpout implements IRichSpout {
                         + ":" + Thread.currentThread().getName() + ":" + MODULE_NAME + " nextTuple");
         Utils.sleep(1000);
         // emit返回tuple被发送到的task的id
-        List<Integer> result = collector.emit(new Values(RandomStringUtils.random(1)));
+        List<Integer> result = collector.emit(new Values(RandomStringUtils.random(1)), new Object());
         System.err
                 .println(DateFormatUtils.format(new Date(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern())
                         + ":" + Thread.currentThread().getName() + ":" + MODULE_NAME + " nextTuple" + result);

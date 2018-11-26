@@ -36,6 +36,7 @@ public class TestJob {
             else {
                 LocalCluster cluster = new LocalCluster();
                 config.put(Config.TOPOLOGY_DEBUG, true);
+                config.put(Config.TOPOLOGY_ACKER_EXECUTORS, 1);
                 cluster.submitTopology("local", config, builder.createTopology());
                 TimeUnit.SECONDS.sleep(5);
                 cluster.shutdown();
